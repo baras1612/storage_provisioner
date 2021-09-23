@@ -20,7 +20,7 @@ spec:
               mountPath: /persistentvolumes
           env:
             - name: PROVISIONER_NAME
-              value: k8s-sigs.io/nfs-subdir-external-provisioner
+              value: nfs-storage
             - name: NFS_SERVER
               value: 192.168.178.10
             - name: NFS_PATH
