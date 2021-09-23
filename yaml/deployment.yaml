@@ -21,7 +21,7 @@ spec:
           image: quay.io/external_storage/nfs-client-provisioner-x86:latest
           resources:
             limits:
-              cpu: 1
+              cpu: 2
               memory: 1Gi
           volumeMounts:
             - name: nfs-client-ssd
