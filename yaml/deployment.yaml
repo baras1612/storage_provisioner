@@ -1,8 +1,12 @@
-apiVersion: apps/v1
 kind: Deployment
+apiVersion: apps/v1
 metadata:
   name: nfs-client-provisioner
+  namespace: default
 spec:
+  selector:
+    matchLabels:
+      app: nfs-client-provisioner
   replicas: 1
   strategy:
     type: Recreate
@@ -14,19 +18,23 @@ spec:
       serviceAccountName: nfs-client-provisioner
       containers:
         - name: nfs-client-provisioner
-          image: quay.io/external_storage/nfs-client-provisioner:latest
+          image: quay.io/external_storage/nfs-client-provisioner-x86:latest
+          resources:
+            limits:
+              cpu: 1
+              memory: 1Gi
           volumeMounts:
-            - name: nfs-client-root
+            - name: nfs-client-ssd
               mountPath: /persistentvolumes
           env:
             - name: PROVISIONER_NAME
-              value: nfs-storage
+              value: ff1.dev/nfs
             - name: NFS_SERVER
               value: 192.168.178.10
             - name: NFS_PATH
               value: /mnt/POOL1/SHARE06
       volumes:
-        - name: nfs-client-root
+        - name: nfs-client-ssd
           nfs:
             server: 192.168.178.10
             path: /mnt/POOL1/SHARE06
