@@ -33,6 +33,8 @@ spec:
               value: 192.168.178.10
             - name: NFS_PATH
               value: /mnt/POOL1/SHARE06
+          mountOptions:
+            - nfsvers=4
       volumes:
         - name: nfs-client-ssd
           nfs:
