@@ -28,13 +28,12 @@ spec:
               mountPath: /persistentvolumes
           env:
             - name: PROVISIONER_NAME
-              value: ff1.dev/nfs
+              value: nfs_provisioner
             - name: NFS_SERVER
               value: 192.168.178.50
             - name: NFS_PATH
               value: /mnt/kubernetes
-          mountOptions:
-            - nfsvers = 3
+          
       volumes:
         - name: nfs-client-ssd
           nfs:
