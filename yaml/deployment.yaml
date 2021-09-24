@@ -21,7 +21,7 @@ spec:
           image: quay.io/external_storage/nfs-client-provisioner-x86:latest
           resources:
             limits:
-              cpu: 1
+              cpu: 2
               memory: 1Gi
           volumeMounts:
             - name: nfs-client-ssd
@@ -33,10 +33,10 @@ spec:
               value: 192.168.178.10
             - name: NFS_PATH
               value: /mnt/POOL1/SHARE06
-          mountOptions:
-            - nfsvers=3
       volumes:
         - name: nfs-client-ssd
           nfs:
             server: 192.168.178.10
             path: /mnt/POOL1/SHARE06
+            mountOptions:
+              - nfsvers=3
