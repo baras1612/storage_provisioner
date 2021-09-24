@@ -30,13 +30,13 @@ spec:
             - name: PROVISIONER_NAME
               value: nfs_provisioner
             - name: NFS_SERVER
-              value: 192.168.178.50
+              value: 192.168.178.10
             - name: NFS_PATH
-              value: /mnt/kubernetes
+              value: /mnt/POOL1/SHARE06
           
       volumes:
         - name: nfs-client-ssd
           nfs:
-            server: 192.168.178.50
-            path: /mnt/kubernetes
+            server: 192.168.178.10
+            path: /mnt/POOL1/SHARE06
 
