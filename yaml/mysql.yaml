@@ -20,7 +20,7 @@ spec:
         name: mysql
         env:
         - name: MYSQL_ROOT_PASSWORD
-          Value: "password"
+          Value: Mihai3033!@
         ports:
         - containerPort: 3306
           name: mysql
