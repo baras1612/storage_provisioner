@@ -34,7 +34,7 @@ spec:
             - name: NFS_PATH
               value: /mnt/POOL1/SHARE06
           mountOptions:
-            - nfsvers=4.1
+            - nfsvers=3
       volumes:
         - name: nfs-client-ssd
           nfs:
