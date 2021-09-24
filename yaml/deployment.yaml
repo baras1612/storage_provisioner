@@ -32,11 +32,12 @@ spec:
             - name: NFS_SERVER
               value: 192.168.178.10
             - name: NFS_PATH
-              value: /mnt/POOL1/SHARE06
+              value: /mnt/POOL1/SHARE06 
+          mountOptions:
+            - nfsvers=3
       volumes:
         - name: nfs-client-ssd
           nfs:
             server: 192.168.178.10
             path: /mnt/POOL1/SHARE06
-            mountOptions:
-              - nfsvers=3
+
